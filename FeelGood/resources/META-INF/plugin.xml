@@ -1,0 +1,46 @@
+<idea-plugin>
+    <id>com.liuyue.plugin</id>
+    <name>Enjoy Coding</name>
+    <version>1.0</version>
+    <vendor email="liuyueshaolongfei@foxmail.com" url="http://www.shaolongfei.com">流月</vendor>
+
+    <description><![CDATA[
+     这一款在你编写代码时会播放美妙音效的插件</br>
+     播放的音效会根据输入代码速度的不同进行变化</br>
+     <em>Enjoy Coding!</em>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      v1.0 版本，正式推出！
+    ]]>
+    </change-notes>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html for description -->
+    <idea-version since-build="193.0"/>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="TestAction" class="com.liuyue.plugin.TestAction" text="TestAction" description="TestAction">
+            <add-to-group group-id="FileMenu" anchor="first"/>
+        </action>
+    </actions>
+
+    <applicationListeners>
+        <listener class="com.liuyue.plugin.ProjectListener"
+                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    </applicationListeners>
+
+    <projectListeners>
+        <listener class="com.liuyue.plugin.MyTypedHandler"
+                  topic="com.intellij.openapi.editor.actionSystem.TypedActionHandler"/>
+    </projectListeners>
+
+</idea-plugin>
